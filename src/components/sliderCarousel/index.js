@@ -1,5 +1,5 @@
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { ReactComponent as LeftArrow } from "../../assets/icons/chevron-left-solid.svg";
 import { ReactComponent as RightArrow } from "../../assets/icons/chevron-right-solid.svg";
@@ -12,12 +12,18 @@ import img4 from "../../assets/images/static-4.jpg";
 import anim1 from "../../assets/images/anim-1.webp";
 import anim2 from "../../assets/images/anim-2.webp";
 import anim4 from "../../assets/images/anim-4.webp";
+import author1 from "../../assets/avatars/author-1.jpg";
+import author10 from "../../assets/avatars/author-10.jpg";
+import author11 from "../../assets/avatars/author-11.jpg";
+import author12 from "../../assets/avatars/author-12.jpg";
+import author9 from "../../assets/avatars/author-9.jpg";
+import author2 from "../../assets/avatars/author-2.jpg";
+import author3 from "../../assets/avatars/author-3.jpg";
 
 // Import Swiper styles
 import "swiper/css/bundle";
 
 const SliderCarousel = () => {
-  const swiper = useSwiper();
   const cardData = [
     {
       id: 1,
@@ -26,8 +32,8 @@ const SliderCarousel = () => {
       price: 0.08,
       ratio: "1/20",
       likes: 50,
-      portrait: true,
       timer: true,
+      avatar: author1,
     },
     {
       id: 2,
@@ -36,7 +42,7 @@ const SliderCarousel = () => {
       price: 0.06,
       ratio: "1/22",
       likes: 80,
-      portrait: false,
+      avatar: author10,
     },
     {
       id: 3,
@@ -45,8 +51,8 @@ const SliderCarousel = () => {
       price: 0.05,
       ratio: "1/11",
       likes: 97,
-      portrait: true,
       timer: true,
+      avatar: author11,
     },
     {
       id: 4,
@@ -55,7 +61,7 @@ const SliderCarousel = () => {
       price: 0.02,
       ratio: "1/15",
       likes: 73,
-      portrait: true,
+      avatar: author12,
     },
     {
       id: 5,
@@ -64,7 +70,7 @@ const SliderCarousel = () => {
       price: 0.06,
       ratio: "1/20",
       likes: 26,
-      portrait: true,
+      avatar: author9,
     },
     {
       id: 6,
@@ -73,8 +79,8 @@ const SliderCarousel = () => {
       price: 0.03,
       ratio: "1/24",
       likes: 45,
-      portrait: false,
       timer: true,
+      avatar: author2,
     },
     {
       id: 7,
@@ -83,7 +89,7 @@ const SliderCarousel = () => {
       price: 0.09,
       ratio: "1/25",
       likes: 76,
-      portrait: false,
+      avatar:author3,
     },
   ];
 
@@ -96,7 +102,7 @@ const SliderCarousel = () => {
     },
     pagination: false,
     spaceBetween: 20,
-    slidesPerView: 2,
+    slidesPerView: 1,
     breakpoints: {
       1200: {
         spaceBetween: 25,
@@ -106,6 +112,11 @@ const SliderCarousel = () => {
         spaceBetween: 20,
         slidesPerView: 3,
       },
+      576:{
+        spaceBetween: 20,
+        slidesPerView: 2,
+
+      }
     },
   };
   return (

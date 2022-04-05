@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  /* border: 1px solid red; */
   padding: 90px 0;
   display: flex;
   align-items: center;
@@ -9,8 +8,8 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
+  max-width: 500px;
   padding: 0.5rem 0.75rem;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +46,7 @@ export const Title = styled.h2`
   line-height: 46px;
   margin-bottom: 10px;
   font-weight: 700;
-  color: #0d0c22;
+  color: #fff;
 `;
 
 export const SmallBorder = styled.div`
@@ -60,14 +59,10 @@ export const SmallBorder = styled.div`
 `;
 
 export const Card = styled.div`
-  border: 1px solid #ddd;
-  background: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #161d30;
   padding: 20px;
   color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   border-radius: 15px;
   position: relative;
 `;
@@ -75,25 +70,19 @@ export const Card = styled.div`
 export const CardContent = styled.div`
   width: 100%;
   margin: 20px 0;
-  height: 263.25px;
+  height: 225px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 export const CardImage = styled.img`
-  ${({ portrait }) =>
-    portrait
-      ? `width:auto !important;
-      height:100%;`
-      : `width: 100%;
-      height: auto !important;`}
+  width: 200px;
   border-radius: 8px;
   transition: ease-in-out 0.5s;
   &:hover {
     transform: scale(1.02);
   }
-  /* border: 1px solid green; */
 `;
 
 export const CardDetails = styled.div`
@@ -102,7 +91,6 @@ export const CardDetails = styled.div`
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  /* border: 1px solid red; */
   position: relative;
 `;
 
@@ -113,7 +101,7 @@ export const Row = styled.div`
 export const CardTitle = styled.h4`
   font-weight: 700;
   font-size: 15px;
-  color: #0d0c22;
+  color: #fff;
 `;
 
 export const MenuIcon = styled.div`
@@ -124,7 +112,7 @@ export const MenuIcon = styled.div`
   height: 15px;
   letter-spacing: 2px;
   line-height: 0;
-  color: #0d0c22;
+  color: #fff;
   position: absolute;
   cursor: pointer;
   padding: 5px;
@@ -139,12 +127,12 @@ export const MenuIcon = styled.div`
 export const Price = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: #727272;
+  color: #9fa4dd;
 `;
 
 export const Ratio = styled.span`
   font-weight: 700;
-  color: #0d0c22;
+  color: #fff;
   font-size: 14px;
   margin-left: 10px;
 `;
@@ -190,12 +178,12 @@ export const CarouselButtons = styled.div`
 export const NextButton = styled.button`
   border: none;
   outline: none;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #161d30;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   width: 40px;
   height: 40px;
-  color: black;
-  background: white;
+  color: #fff;
+  background: #161d30;
   border-radius: 50%;
   transition: 0.2s ease-in-out;
   top: 50%;
@@ -214,15 +202,50 @@ export const PrevButton = styled(NextButton)`
 `;
 
 export const Timer = styled.div`
-  background: white;
+  background: #161d30;
   border: 2px solid #8364e2;
   border-radius: 30px;
   padding: 5px 10px;
-  color: #0d0c22;
+  color: #fff;
   position: absolute;
-  right: 15px;
-  top: 20px;
+  right: 10px;
+  top: 25px;
   font-size: 14px;
   font-weight: bold;
   z-index: 99;
+`;
+
+export const Avatar = styled.div`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  left: 10px;
+  top: 20px;
+  border-radius: 50%;
+  background: #8364e2;
+`;
+
+export const AvatarImg = styled.img`
+  border-radius: 50%;
+  width: 100%;
+  transition: 0.1s ease-in;
+
+  &:hover {
+    transform: scale(0.875);
+  }
+`;
+
+export const AvatarIcon = styled.span`
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  border-radius: 50%;
+  right: 0;
+  bottom: 5px;
+  color: white;
+  background: #8364e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
