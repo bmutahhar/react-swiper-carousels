@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 90px 0;
   display: flex;
   align-items: center;
@@ -11,31 +11,30 @@ export const Section = styled.section`
 export const Container = styled.div`
   padding: 0.5rem 0.75rem;
   border: 1px solid black;
-  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* @media only screen and (min-width: 1400px) {
-    max-width: 1320px;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    max-width: 1140px;
-  }
-
-  @media only screen and (min-width: 992px) {
-    max-width: 960px;
+  position: relative;
+  @media only screen and (min-width: 576px) {
+    max-width: 540px;
   }
 
   @media only screen and (min-width: 768px) {
     max-width: 720px;
   }
 
-  @media only screen and (min-width: 576px) {
-    max-width: 540px;
-  } */
+  @media only screen and (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media only screen and (min-width: 1400px) {
+    max-width: 1320px;
+  }
 `;
 
 export const Carousel = styled.div`
@@ -64,21 +63,36 @@ export const Card = styled.div`
   border: 1px solid #ddd;
   background: white;
   padding: 20px;
-  position: relative;
   color: black;
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
+  position: relative;
+`;
+
+export const CardContent = styled.div`
+  width: 100%;
+  margin: 20px 0;
+  height: 263.25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const CardImage = styled.img`
-  width: 100%;
-  height: auto !important;
+  ${({ portrait }) =>
+    portrait
+      ? `width:auto !important;
+      height:100%;`
+      : `width: 100%;
+      height: auto !important;`}
   border-radius: 8px;
-  margin: 20px 0;
+  transition: ease-in-out 0.5s;
+  &:hover {
+    transform: scale(1.02);
+  }
   /* border: 1px solid green; */
 `;
 
@@ -176,11 +190,39 @@ export const CarouselButtons = styled.div`
 export const NextButton = styled.button`
   border: none;
   outline: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  color: black;
   background: white;
-  border: 1px solid red;
-  width: 50px;
-  height: 50px;
-  color: "blue";
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  top: 50%;
+  right: 1.75%;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.25);
+  }
+  &::after {
+    display: none;
+  }
 `;
 
-export const PrevButton = styled(NextButton)``;
+export const PrevButton = styled(NextButton)`
+  left: 1.75%;
+`;
+
+export const Timer = styled.div`
+  background: white;
+  border: 2px solid #8364e2;
+  border-radius: 30px;
+  padding: 5px 10px;
+  color: #0d0c22;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 99;
+`;

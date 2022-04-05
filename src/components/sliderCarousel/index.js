@@ -1,6 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation } from "swiper";
 import { ReactComponent as LeftArrow } from "../../assets/icons/chevron-left-solid.svg";
 import { ReactComponent as RightArrow } from "../../assets/icons/chevron-right-solid.svg";
 import * as Styled from "./styled.components";
@@ -26,6 +26,8 @@ const SliderCarousel = () => {
       price: 0.08,
       ratio: "1/20",
       likes: 50,
+      portrait: true,
+      timer: true,
     },
     {
       id: 2,
@@ -34,6 +36,7 @@ const SliderCarousel = () => {
       price: 0.06,
       ratio: "1/22",
       likes: 80,
+      portrait: false,
     },
     {
       id: 3,
@@ -42,6 +45,8 @@ const SliderCarousel = () => {
       price: 0.05,
       ratio: "1/11",
       likes: 97,
+      portrait: true,
+      timer: true,
     },
     {
       id: 4,
@@ -50,6 +55,7 @@ const SliderCarousel = () => {
       price: 0.02,
       ratio: "1/15",
       likes: 73,
+      portrait: true,
     },
     {
       id: 5,
@@ -58,6 +64,7 @@ const SliderCarousel = () => {
       price: 0.06,
       ratio: "1/20",
       likes: 26,
+      portrait: true,
     },
     {
       id: 6,
@@ -66,6 +73,8 @@ const SliderCarousel = () => {
       price: 0.03,
       ratio: "1/24",
       likes: 45,
+      portrait: false,
+      timer: true,
     },
     {
       id: 7,
@@ -74,21 +83,18 @@ const SliderCarousel = () => {
       price: 0.09,
       ratio: "1/25",
       likes: 76,
+      portrait: false,
     },
   ];
 
-  const goNext = () => {
-    swiper.slideNext();
-  };
-
-  const goBack = () => {
-    swiper.slidePrev();
-  };
-
   const params = {
-    modules: [Navigation, Pagination],
-    navigation: true,
-    pagination: true,
+    modules: [Navigation],
+    loop: true,
+    navigation: {
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
+    },
+    pagination: false,
     spaceBetween: 20,
     slidesPerView: 2,
     breakpoints: {
@@ -108,26 +114,22 @@ const SliderCarousel = () => {
         <Styled.Title>New Items</Styled.Title>
         <Styled.SmallBorder />
         <Styled.Carousel>
-          <Swiper
-            {...params}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+          <Swiper {...params}>
             {cardData.map((item) => (
               <SwiperSlide key={item.id}>
                 <Card {...item} />
               </SwiperSlide>
             ))}
           </Swiper>
-          <Styled.CarouselButtons>
-            <Styled.PrevButton className="swiper-button-prev" onClick={goBack}>
-              <LeftArrow />
-            </Styled.PrevButton>
-            <Styled.NextButton className="swiper-button-next" onClick={goNext}>
-              <RightArrow />
-            </Styled.NextButton>
-          </Styled.CarouselButtons>
         </Styled.Carousel>
+        <Styled.CarouselButtons>
+          <Styled.PrevButton className="swiper-button-prev">
+            <LeftArrow width="8px" />
+          </Styled.PrevButton>
+          <Styled.NextButton className="swiper-button-next">
+            <RightArrow width="8px" />
+          </Styled.NextButton>
+        </Styled.CarouselButtons>
       </Styled.Container>
     </Styled.Section>
   );

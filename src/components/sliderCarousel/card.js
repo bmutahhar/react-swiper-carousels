@@ -5,7 +5,10 @@ import { ReactComponent as HeartIcon } from "../../assets/icons/heart-solid.svg"
 const Card = (props) => {
   return (
     <Styled.Card>
-      <Styled.CardImage src={props.image} />
+      {props.timer && <Styled.Timer>38d 18h 25m 40s</Styled.Timer>}
+      <Styled.CardContent>
+        <Styled.CardImage portrait={props.portrait} src={props.image} />
+      </Styled.CardContent>
       <Styled.CardDetails>
         <Styled.Row>
           <Styled.CardTitle>{props.title}</Styled.CardTitle>
