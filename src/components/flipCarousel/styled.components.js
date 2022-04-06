@@ -56,7 +56,7 @@ export const SliderImageWrapper = styled.div`
 `;
 
 export const SlideImage = styled.img`
- width:100%;
+  width: 100%;
   border-radius: 10px;
 `;
 
@@ -155,4 +155,47 @@ export const AvatarIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid red;
+`;
+
+export const BidDetails = styled.div`
+  border: 1px solid green;
+`;
+
+export const AuctionDetails = styled.div`
+  border: 1px solid white;
+`;
+
+export const SuperScriptItem = styled.span`
+  color: #a2a2a2;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+`;
+
+export const Price = styled.span`
+  font-weight: 500;
+  font-size: 32px;
+  color: white;
+  display: block;
+  margin: 10px 0;
+  text-align: left;
+`;
+
+export const SubScriptItem = styled.span`
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+  text-align: left;
+
+  margin: 5px 0;
 `;

@@ -29,6 +29,20 @@ const FlipCarousel = () => {
                   <Styled.AuthorUsername>@lorihart</Styled.AuthorUsername>
                 </Styled.AuthorInfo>
               </Styled.Author>
+              <Styled.Row>
+                <Styled.BidDetails>
+                  <Styled.SubScriptItem>Current Bid</Styled.SubScriptItem>
+                  <Styled.Price>2.59 ETH</Styled.Price>
+                  <Styled.SubScriptItem>($8935,37)</Styled.SubScriptItem>
+                </Styled.BidDetails>
+                <Styled.AuctionDetails>
+                  <Styled.SubScriptItem>Auction end in</Styled.SubScriptItem>
+                  <Styled.Price>38d 4h 58m 14s</Styled.Price>
+                  <Styled.SubScriptItem>
+                    (November 16, 2021)
+                  </Styled.SubScriptItem>
+                </Styled.AuctionDetails>
+              </Styled.Row>
             </Styled.SlideContent>
           </Styled.SlideContentWrapper>
         </Styled.Slide>
