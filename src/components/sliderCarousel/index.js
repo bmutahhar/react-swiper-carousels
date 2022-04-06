@@ -95,7 +95,7 @@ const SliderCarousel = () => {
 
   const params = {
     modules: [Navigation],
-    loop: true,
+    rewind: true,
     navigation: {
       prevEl: ".swiper-button-prev",
       nextEl: ".swiper-button-next",

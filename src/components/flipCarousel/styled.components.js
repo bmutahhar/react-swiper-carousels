@@ -1,13 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import bg from "../../assets/background/bg.jpg";
 
+const FadeAnim = keyframes`
+0%{
+  opacity: 0;
+}
+100%{
+  opacity:1;
+}
+`;
+
 export const Section = styled.section`
-  background: url(${bg});
+  background-image: url(${bg});
   background-size: cover;
-  background-position: center;
-  padding: 90px 0;
-  position: relative;
-  border: 1px solid red;
+  background-position: bottom center;
+  padding-top: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,12 +22,12 @@ export const Section = styled.section`
 
 export const Container = styled.div`
   max-width: 500px;
+  padding: 0.5rem 0.75rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 1px solid green;
-  flex: 1;
   @media only screen and (min-width: 576px) {
     max-width: 540px;
   }
@@ -42,17 +49,28 @@ export const Container = styled.div`
   }
 `;
 
-export const Slide = styled.div`
+export const Carousel = styled.div`
+  width: 95%;
+`;
+
+export const SlideContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  border: 1px solid blue;
+
+  @media only screen and (min-width: 992px) {
+    flex-direction: row;
+  }
 `;
 
 export const SliderImageWrapper = styled.div`
-  padding: 0 10px;
-  width: 50%;
+  width: 100%;
+  @media only screen and (min-width: 992px) {
+    margin-right: 20px;
+    width: 50%;
+  }
 `;
 
 export const SlideImage = styled.img`
@@ -61,14 +79,17 @@ export const SlideImage = styled.img`
 `;
 
 export const SlideContentWrapper = styled.div`
-  width: 50%;
-  border: 1px solid red;
+  width: 100%;
+  padding-top: 30px;
+  @media only screen and (min-width: 992px) {
+    width: 50%;
+    padding-left: 30px;
+    padding-top: 0px;
+  }
 `;
 
 export const SlideContent = styled.div`
   width: 100%;
-  padding-left: 30px;
-  border: 1px solid pink;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -82,20 +103,7 @@ export const Title = styled.h2`
   margin-bottom: 20px;
   font-weight: 700;
   color: #fff;
-`;
-
-export const Timer = styled.div`
-  background: #161d30;
-  border: 2px solid #8364e2;
-  border-radius: 30px;
-  padding: 5px 10px;
-  color: #fff;
-  position: absolute;
-  right: 10px;
-  top: 25px;
-  font-size: 14px;
-  font-weight: bold;
-  z-index: 99;
+  text-align: left;
 `;
 
 export const Author = styled.div`
@@ -160,17 +168,16 @@ export const AvatarIcon = styled.span`
 export const Row = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
-  border: 1px solid red;
 `;
 
-export const BidDetails = styled.div`
-  border: 1px solid green;
-`;
+export const BidDetails = styled.div``;
 
 export const AuctionDetails = styled.div`
-  border: 1px solid white;
+  margin-left: 40px;
+  padding-left: 40px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
 `;
 
 export const SuperScriptItem = styled.span`
@@ -183,11 +190,30 @@ export const SuperScriptItem = styled.span`
 
 export const Price = styled.span`
   font-weight: 500;
-  font-size: 32px;
+  font-size: 24px;
   color: white;
   display: block;
   margin: 10px 0;
   text-align: left;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 32px;
+  }
+`;
+
+export const Timer = styled.div`
+  background: -webkit-linear-gradient(#c5269d, #8505ab);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding: 10px 5px;
+  font-size: 24px;
+  font-weight: bold;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 32px;
+  }
 `;
 
 export const SubScriptItem = styled.span`
@@ -196,6 +222,66 @@ export const SubScriptItem = styled.span`
   font-weight: 500;
   display: block;
   text-align: left;
-
   margin: 5px 0;
+`;
+
+export const BidButton = styled.button`
+  border: none;
+  outline: none;
+  padding: 8px 40px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  background: linear-gradient(217deg, #c5269d, #8505ab 75%);
+  margin: 30px 5px 10px 0;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 25px -10px #c5269d;
+  }
+`;
+
+export const ArtworkButton = styled(BidButton)`
+  background: rgba(255, 255, 255, 0.2);
+  margin: 30px 0px 10px 5px;
+`;
+
+export const CarouselButtons = styled.div`
+  width: 100%;
+`;
+
+export const NextButton = styled.button`
+  border: none;
+  outline: none;
+  background-color: #161d30;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 45px;
+  height: 45px;
+  color: #fff;
+  background: #161d30;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  position: absolute;
+  top: 25%;
+  right: -3%;
+  z-index: 99;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.25);
+  }
+  &::after {
+    display: none;
+  }
+
+  @media only screen and (min-width: 992px) {
+    top: 45%;
+    right: -1.75%;
+  }
+`;
+
+export const PrevButton = styled(NextButton)`
+  left: -3%;
+  @media only screen and (min-width: 992px) {
+    left: -1.75%;
+  }
 `;
