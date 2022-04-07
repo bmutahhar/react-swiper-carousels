@@ -262,6 +262,9 @@ export const NextButton = styled.button`
   border-radius: 50%;
   transition: 0.2s ease-in-out;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 25%;
   right: -3%;
   z-index: 99;
